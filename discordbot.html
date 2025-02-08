@@ -27,16 +27,17 @@
     <main>
         <section class="hero-section scroll-reveal">
             <div class="container">
-                <h2 class="main-title">Discord Bot</h2>
+                <h2 class="main-title">Shibaken Bot</h2>
                 <div class="bot-features scroll-reveal">
-                    <div class="feature-grid">
+                    <!-- 変更: Bot 機能・コマンド部分の文字色を黒に指定 -->
+                    <div class="feature-grid" style="color: black;">
                         <div class="feature-item">
                             <h3>主な機能</h3>
                             <ul class="bot-features-list">
-                                <li>メッセージ管理</li>
-                                <li>ユーザー管理</li>
-                                <li>音楽再生</li>
-                                <li>イベント管理</li>
+                                <li>認証機能</li>
+                                <li>話題生成</li>
+                                <li>便利コマンド</li>
+                                <li>募集機能</li>
                             </ul>
                         </div>
                         <div class="feature-item">
@@ -44,13 +45,42 @@
                             <p>スラッシュコマンド対応</p>
                             <ul class="bot-commands-list">
                                 <li><code>/help</code> - コマンド一覧</li>
-                                <li><code>/play</code> - 音楽再生</li>
-                                <li><code>/event</code> - イベント作成</li>
+                                <li><code>/wadai</code> - 話題生成</li>
+                                <li><code>/bosyu</code> - 募集機能</li>
                             </ul>
                         </div>
                     </div>
                     <div class="bot-info">
                         <p>このBotは当サーバー専用のプライベートBotです</p>
+                    </div>
+                    
+                    <!-- 埋め込みセクションを追加 -->
+                    <div class="embed-section scroll-reveal">
+                        <h3>Bot の使用例</h3>
+                        <div class="embed-container">
+                            <div class="embed-message">
+                                <div class="embed-header">
+                                    <img src="img/bot-avatar.png" alt="Bot Avatar" class="embed-avatar">
+                                    <span class="embed-author">KSNeTeam Bot</span>
+                                </div>
+                                <div class="embed-content">
+                                    <div class="embed-description">
+                                        <p>🎮 ゲーム機能</p>
+                                        <p>🎵 音楽機能</p>
+                                        <p>📊 管理機能</p>
+                                    </div>
+                                    <div class="embed-fields">
+                                        <div class="embed-field">
+                                            <h4>コマンド例</h4>
+                                            <code>/help</code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="embed-footer">
+                                    <span>詳しい使い方は /help をご確認ください</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

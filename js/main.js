@@ -3,21 +3,23 @@ document.addEventListener("DOMContentLoaded", function() {
     const header = document.querySelector('.site-header');
     const menuToggle = document.getElementById("menu-toggle");
 
-    // スムーズスクロール＆メニュー折りたたみ処理
+    // ナビゲーションリンクのクリック処理修正
     navLinks.forEach(link => {
-        if(link.getAttribute("href") === "rules.html") return;
-        link.addEventListener("click", function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute("data-target");
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-            // クリック後、メニューが開いていれば閉じる
-            if(header.classList.contains("nav-open")){
-                header.classList.remove("nav-open");
-            }
-        });
+        // data-target 属性がある場合は内部リンクとしてスムーズスクロールする
+        const targetSectionId = link.getAttribute("data-target");
+        if(targetSectionId) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const targetSection = document.getElementById(targetSectionId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+                if(header.classList.contains("nav-open")){
+                    header.classList.remove("nav-open");
+                }
+            });
+        }
+        // data-target が無い場合は通常のリンク遷移を行う
     });
 
     // スクロールアニメーション
@@ -67,9 +69,26 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // PCなど画面幅が広い場合、ホバーでメニューを展開／非表示にする
+    if(window.innerWidth > 768 && menuToggle) {
+        menuToggle.addEventListener("mouseenter", function() {
+            header.classList.add("nav-open");
+        });
+        header.addEventListener("mouseleave", function() {
+            header.classList.remove("nav-open");
+        });
+    }
+
     // メニュー外クリックで閉じる
     document.addEventListener('click', function(e) {
         if (!header.contains(e.target) && !menuToggle.contains(e.target) && header.classList.contains('nav-open')) {
+            header.classList.remove('nav-open');
+        }
+    });
+
+    // 追加: モバイル向けタッチイベントでメニュー外をタッチしたら閉じる
+    document.addEventListener('touchstart', function(e) {
+        if (!header.contains(e.target) && header.classList.contains('nav-open')) {
             header.classList.remove('nav-open');
         }
     });
@@ -185,4 +204,11 @@ document.addEventListener("DOMContentLoaded", function() {
             .map(b => b.toString(16).padStart(2, '0'))
             .join('');
     }
+
+    // ページ左端10pxにカーソルが入ったらメニューを展開する処理
+    document.addEventListener("mousemove", function(e) {
+        if (e.clientX < 10) {
+            header.classList.add("nav-open");
+        }
+    });
 });
