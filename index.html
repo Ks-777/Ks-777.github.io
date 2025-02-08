@@ -86,10 +86,16 @@
     </footer>
 
     <div id="cookie-banner" class="cookie-banner">
-        <p>当サイトではCookieを使用していません。</p>
+        <p>当サイトではCookieを使用しています。(プライバシーにかかわる情報は収集しません)</p>
         <button id="accept-cookie">同意する</button>
     </div>
 
     <script src="js/main.js"></script>
+    <script>
+        // Cookie同意ボタンをクリックした場合の処理
+        document.getElementById('accept-cookie').addEventListener('click', function() {
+            document.getElementById('cookie-banner').style.display = 'none';
+        });
+    </script>
 </body>
 </html>
