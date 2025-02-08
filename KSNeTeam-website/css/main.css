@@ -1,0 +1,740 @@
+/* filepath: /KSNeTeam-website/KSNeTeam-website/css/main.css */
+
+:root {
+    --primary-color: #6C63FF;
+    --secondary-color: #4CAF50;
+    --text-color: #333;
+    --bg-color: #f5f5f5;
+    --white: #ffffff;
+    --header-height: 60px;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    /* Template: ヘッダーのレイアウトテンプレート */
+}
+
+nav {
+    margin: 20px 0;
+    /* Flexboxを利用して横並びに */
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, transform 0.3s, color 0.3s;
+    font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+    background: #1dcae8;
+    transform: scale(1.05);
+    color: var(--primary-color);
+}
+
+/* Template: 判定セクションのスタイル */
+#judgment-section {
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    border-radius: 10px;
+    width: 80%;
+    animation: fadeIn 1s ease-in-out;
+}
+#judgment-section p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+#judge-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background: #1dcae8;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#judge-btn:hover {
+    background: #17a2b8;
+}
+#judgment-result {
+    margin-top: 20px;
+    font-size: 1.1em;
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Template: Cookieバナー用スタイル */
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    z-index: 1000;
+}
+#cookie-banner button {
+    margin-left: 20px;
+    padding: 5px 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+.content {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background: #35424a;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Template: レスポンシブ対応 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav li {
+        margin: 5px 0;
+    }
+    .main-title {
+        font-size: 2.5rem;
+    }
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    /* 初期状態は非表示 */
+    nav .nav-list {
+        display: none;
+        flex-direction: column;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+    }
+    /* メニュー表示時 */
+    .nav-open nav .nav-list {
+        display: flex;
+    }
+    /* リンクに余白を追加 */
+    nav .nav-list li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+/* Template: キーフレーム */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* スクロールアニメーション用スタイル */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* セクション間の余白調整 */
+section {
+    margin: 100px 0;
+    padding: 50px 20px;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+    text-align: center;
+}
+
+/* heroセクションの調整 */
+.hero-section {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.95),
+        rgba(76, 175, 80, 0.95)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--white);
+    text-align: center;
+}
+
+.main-title {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.5s;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.discord-section {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.discord-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--white);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 2rem;
+    transition: transform 0.3s;
+}
+
+.discord-button:hover {
+    transform: scale(1.05);
+}
+
+.contact-form,
+.contact-section,
+#form-message,
+.alert {
+    display: none;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.link-card {
+    background: var(--white);
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ハンバーガーメニュー用スタイル */
+.menu-toggle {
+    position: absolute; /* fixedからabsoluteに変更 */
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* 三本線のスタイル */
+.menu-icon {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    top: 8px;
+}
+
+/* メニューが開いているときの×印 */
+.nav-open .menu-icon {
+    background: transparent;
+}
+
+.nav-open .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-open .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* ナビゲーションの共通スタイル */
+.nav-list {
+    position: fixed;
+    top: var(--header-height);
+    left: -250px;
+    width: 250px;
+    height: calc(100vh - var(--header-height));
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    margin: 0;
+    z-index: 999;
+    pointer-events: none; /* 初期状態ではクリックイベントを無効化 */
+}
+
+.nav-open .nav-list {
+    left: 0;
+    pointer-events: auto; /* メニューが開いている時のみクリックイベントを有効化 */
+}
+
+/* メディアクエリの更新 */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-list {
+        position: fixed;
+        width: 250px;
+        flex-direction: column;
+    }
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .nav-list {
+        width: 100%;
+    }
+}
+
+/* 以前の重複するメニュー関連のスタイルを削除 */
+/* 削除: .menu-toggle の重複定義 */
+/* 削除: .nav-list の重複定義 */
+/* 削除: レスポンシブ関連の重複定義 */
+
+/* PC表示時のスタイル */
+@media (min-width: 769px) {
+    nav {
+        margin: 0 2rem;
+    }
+
+    .nav-list {
+        position: fixed;
+        width: 250px;
+        flex-direction: column;
+    }
+
+    nav .nav-list li {
+        margin: 0.5rem 0;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* モバイル表示時のスタイル */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0 1rem;
+    }
+
+    .nav-list {
+        display: none;  /* モバイルでは初期状態を非表示に */
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-open .nav-list {
+        transform: translateY(0);
+    }
+
+    nav .nav-list li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+    }
+}
+
+/* PC表示時のホバーメニュー */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+/* モバイル表示時のハンバーガーメニュー */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-list {
+        width: 100%;
+        left: 0;
+        top: 100%;
+    }
+
+    .nav-open .nav-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav .nav-list li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+/* アニメーション効果 */
+.nav-list {
+    transition: all 0.3s ease-in-out;
+    transform-origin: top center;
+}
+
+.nav-open .nav-list {
+    animation: slideDown 0.3s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* メニューボタンの基本スタイル */
+.menu-toggle {
+    position: absolute; /* fixedからabsoluteに変更 */
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* 三本線のスタイル */
+.menu-icon {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.menu-icon::before {
+    top: -8px;
+}
+
+.menu-icon::after {
+    top: 8px;
+}
+
+/* メニューが開いているときの×印 */
+.nav-open .menu-icon {
+    background: transparent;
+}
+
+.nav-open .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-open .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+/* ナビゲーションの共通スタイル */
+.nav-list {
+    position: fixed;
+    top: var(--header-height);
+    left: -250px;
+    width: 250px;
+    height: calc(100vh - var(--header-height));
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+    margin: 0;
+    z-index: 999;
+    pointer-events: none; /* 初期状態ではクリックイベントを無効化 */
+}
+
+.nav-open .nav-list {
+    left: 0;
+    pointer-events: auto; /* メニューが開いている時のみクリックイベントを有効化 */
+}
+
+/* メディアクエリの更新 */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-list {
+        position: fixed;
+        width: 250px;
+        flex-direction: column;
+    }
+}
+
+/* フォームメッセージのスタイル */
+#form-message {
+    margin-bottom: 1rem;
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Bot用のスタイル更新 */
+.bot-features {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-top: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bot-features-list,
+.bot-commands-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.bot-features-list li,
+.bot-commands-list li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bot-commands-list code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-family: monospace;
+    color: #fff;
+}
+
+.bot-info {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.bot-info p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+}
