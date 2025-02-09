@@ -17,7 +17,7 @@
         <button id="menu-toggle" class="menu-toggle" aria-label="メニュー">
             <span class="menu-icon"></span>
         </button>
-        <h1 class="logo">KSNeTeam</h1>
+        <h1 class="logo"><a href="index.html">KSNeTeam</a></h1>
         <nav id="main-nav">
             <ul class="nav-list">
                 <li><a href="index.html" class="nav-link">Home</a></li>
@@ -29,6 +29,12 @@
         </nav>
     </header>
     
+    <!-- Cookie バナーの追加 -->
+    <div id="cookie-banner" class="cookie-banner">
+        <p>当サイトではCookieを使用しています。(プライバシーにかかわる情報は収集しません)</p>
+        <button id="accept-cookie" class="fancy-cookie-button">🍪 同意する</button>
+    </div>
+
     <main>
         <section id="hero" class="hero-section scroll-reveal">
             <div class="hero-content">
@@ -90,17 +96,6 @@
         </div>
     </footer>
 
-    <div id="cookie-banner" class="cookie-banner">
-        <p>当サイトではCookieを使用しています。(プライバシーにかかわる情報は収集しません)</p>
-        <button id="accept-cookie">同意する</button>
-    </div>
-
     <script src="js/main.js"></script>
-    <script>
-        // Cookie同意ボタンをクリックした場合の処理
-        document.getElementById('accept-cookie').addEventListener('click', function() {
-            document.getElementById('cookie-banner').style.display = 'none';
-        });
-    </script>
 </body>
 </html>

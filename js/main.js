@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function() {
         cookieBanner.style.display = "none";
     }
     document.getElementById("accept-cookie").addEventListener("click", function() {
-        localStorage.setItem("cookieAccepted", "true");
         cookieBanner.style.display = "none";
+        localStorage.setItem("cookieAccepted", "true");
     });
 
     // 判定ボタンの処理

@@ -114,6 +114,23 @@ nav a.active {
     padding: 5px 10px;
 }
 
+/* Cookieバナー用スタイルの更新 */
+#cookie-banner button.fancy-cookie-button {
+    background: linear-gradient(45deg, #ffcc33, #ff9900);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+#cookie-banner button.fancy-cookie-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.4);
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -250,6 +267,20 @@ section {
     color: var(--primary-color);
 }
 
+/* 追加: ヘッダーのロゴリンクをボタン風にスタイル調整 */
+.site-header .logo a {
+    text-decoration: none;
+    color: inherit; /* h1.logoで設定している色を継承 */
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    transition: background 0.3s, border-color 0.3s;
+}
+.site-header .logo a:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: currentColor;
+}
+
 /* heroセクションの調整 */
 .hero-section {
     min-height: 100vh;
@@ -265,6 +296,30 @@ section {
     overflow: hidden;
     color: var(--white);
     text-align: center;
+    position: relative; /* 追加: 疑似要素の基準にする */
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(108,99,255,0.95), rgba(76,175,80,0.95));
+    z-index: -1;
+    animation: changeGradient 20s linear infinite;
+}
+
+@keyframes changeGradient {
+    0% {
+        background: linear-gradient(135deg, rgba(108,99,255,0.95), rgba(76,175,80,0.95));
+    }
+    50% {
+        background: linear-gradient(225deg, rgba(108,99,255,0.95), rgba(76,175,80,0.95));
+    }
+    100% {
+        background: linear-gradient(135deg, rgba(108,99,255,0.95), rgba(76,175,80,0.95));
+    }
 }
 
 .main-title {
